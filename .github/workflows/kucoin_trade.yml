@@ -1,0 +1,16 @@
+name: KuCoin Candy Trader
+on:
+  push:  # Runs when you add or update code
+jobs:
+  trade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: pip install ccxt websockets
+      - name: Run KuCoin bot
+        run: python kucoin_bot.py  # Starts your KuCoin car!
